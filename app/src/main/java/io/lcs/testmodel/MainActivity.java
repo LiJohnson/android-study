@@ -6,18 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import roboguice.inject.InjectView;
+import org.androidannotations.annotations.ViewById;
 
 
 public class MainActivity extends Activity {
 
-	@InjectView(R.id.imageView)
-	ImageView _imageView;
+	@ViewById(R.id.imageView)
+	private ImageView imageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		;
 	}
 
 	@Override

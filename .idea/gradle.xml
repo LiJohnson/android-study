@@ -8,8 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/StackBlur" />
-            <option value="$PROJECT_DIR$/StackBlurDemo" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
