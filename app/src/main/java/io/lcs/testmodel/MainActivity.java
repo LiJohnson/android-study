@@ -1,32 +1,61 @@
 package io.lcs.testmodel;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
+
+import com.enrique.stackblur.StackBlurManager;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+
+import java.io.IOException;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
 
 	@ViewById(R.id.imageView)
-	ImageView imageView;
+	protected ImageView imageView;
+
+	@ViewById(R.id.btn)
+	protected Button btn;
+
+	private StackBlurManager stackBlurManager;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		try {
+			this.stackBlurManager =  new StackBlurManager(BitmapFactory.decodeStream(this.getAssets().open("3.jpg")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Click(R.id.btn)
 	public void click(){
-		Log.i("shit",this.imageView.toString());
-	}
+		int proces = (int)(Math.random()*50);
+		this.update( proces );
+		this.updateBtn(proces);
+		Log.i("shit", this.imageView.toString());
 
+	}
+	@UiThread
+	public void update( int process ){
+		this.imageView.setImageBitmap(this.stackBlurManager.process( process )  );
+	}
+	@UiThread
+	public void updateBtn( int process ){
+		this.btn.setText( "process" + process );
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
