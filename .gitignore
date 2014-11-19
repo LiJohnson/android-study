@@ -5,10 +5,8 @@
 .DS_Store
 /build
 
-/StackBlur/build/
+/StackBlur/build/*
 /StackBlurDemo/build/*
 /StackBlur/obj/local/**/*
 
 /.idea/**/*
-/StackBlurDemo.iml
-/StackBlur.iml
