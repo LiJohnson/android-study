@@ -6,19 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import org.androidannotations.annotations.ViewById;
-
-
 public class MainActivity extends Activity {
 
-	@ViewById(R.id.imageView)
 	private ImageView imageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		;
 	}
 
 	@Override
