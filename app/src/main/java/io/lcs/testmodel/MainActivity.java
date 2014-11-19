@@ -11,28 +11,30 @@ import android.widget.ImageView;
 
 import com.enrique.stackblur.StackBlurManager;
 
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-
 import java.io.IOException;
 
-@EActivity(R.layout.activity_main)
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+
+
 public class MainActivity extends Activity {
 
-	@ViewById(R.id.imageView)
+	@InjectView(R.id.imageView)
 	protected ImageView imageView;
 
-	@ViewById(R.id.btn)
+	@InjectView(R.id.btn)
 	protected Button btn;
 
 	private StackBlurManager stackBlurManager;
 
 
-	@Override
+//	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_main);
+		ButterKnife.inject(this);
+		Log.i("shit",""+this.imageView);
 		try {
 			this.stackBlurManager =  new StackBlurManager(BitmapFactory.decodeStream(this.getAssets().open("3.jpg")));
 		} catch (IOException e) {
@@ -40,7 +42,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	@Click(R.id.btn)
+	@OnClick(R.id.btn)
 	public void click(){
 		int proces = (int)(Math.random()*50);
 		this.update( proces );
@@ -48,11 +50,12 @@ public class MainActivity extends Activity {
 		Log.i("shit", this.imageView.toString());
 
 	}
-	@UiThread
+
+	//@UiThread
 	public void update( int process ){
 		this.imageView.setImageBitmap(this.stackBlurManager.process( process )  );
 	}
-	@UiThread
+	//@UiThread
 	public void updateBtn( int process ){
 		this.btn.setText( "process" + process );
 	}

@@ -42,7 +42,8 @@ dependencies {
 	compile 'com.db.williamchart:williamchart:1.0.0'
 	compile 'com.google.code.gson:gson:2.3'
 	compile project(':StackBlur')
-	//compile 'org.androidannotations:androidannotations:3.2'
+
+	compile 'com.jakewharton:butterknife:6.0.0'
 
 	apt "org.androidannotations:androidannotations:$AAVersion"
 	compile "org.androidannotations:androidannotations-api:$AAVersion"
