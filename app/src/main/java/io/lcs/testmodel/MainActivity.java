@@ -2,19 +2,31 @@ package io.lcs.testmodel;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
+@EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
 
-	private ImageView imageView;
+	@ViewById(R.id.imageView)
+	ImageView imageView;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 	}
+
+	@Click(R.id.btn)
+	public void click(){
+		Log.i("shit",this.imageView.toString());
+	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
