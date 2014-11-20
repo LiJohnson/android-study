@@ -11,20 +11,27 @@ import android.widget.ImageView;
 
 import com.enrique.stackblur.StackBlurManager;
 
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
+
 import java.io.IOException;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
+import io.lcs.testmodel.greendao.DaoMaster;
+import io.lcs.testmodel.greendao.Note;
+import io.lcs.testmodel.greendao.NoteDao;
 
-
+@EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
 
-	@InjectView(R.id.imageView)
+	@ViewById(R.id.imageView)
 	protected ImageView imageView;
 
-	@InjectView(R.id.btn)
+	@ViewById(R.id.btn)
 	protected Button btn;
+
+	private NoteDao noteDao;
 
 	private StackBlurManager stackBlurManager;
 
@@ -32,9 +39,7 @@ public class MainActivity extends Activity {
 //	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_main);
-		ButterKnife.inject(this);
-		Log.i("shit",""+this.imageView);
+		noteDao = new DaoMaster(new DaoMaster.DevOpenHelper(this, "notes-db", null).getWritableDatabase()).newSession().getNoteDao();
 		try {
 			this.stackBlurManager =  new StackBlurManager(BitmapFactory.decodeStream(this.getAssets().open("3.jpg")));
 		} catch (IOException e) {
@@ -42,22 +47,23 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	@OnClick(R.id.btn)
+	@Click(R.id.btn)
 	public void click(){
 		int proces = (int)(Math.random()*50);
+		this.noteDao.insert(new Note( null , proces+"" , null , null  ));
 		this.update( proces );
 		this.updateBtn(proces);
 		Log.i("shit", this.imageView.toString());
 
 	}
 
-	//@UiThread
+	@UiThread
 	public void update( int process ){
 		this.imageView.setImageBitmap(this.stackBlurManager.process( process )  );
 	}
-	//@UiThread
+	@UiThread
 	public void updateBtn( int process ){
-		this.btn.setText( "process" + process );
+		this.btn.setText( "process" + process + " : " + this.noteDao.count());
 	}
 
 	@Override

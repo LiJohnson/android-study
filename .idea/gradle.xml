@@ -8,8 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/DaoCore" />
+            <option value="$PROJECT_DIR$/DaoExample" />
+            <option value="$PROJECT_DIR$/DaoExampleGenerator" />
+            <option value="$PROJECT_DIR$/DaoGenerator" />
+            <option value="$PROJECT_DIR$/DaoTest" />
             <option value="$PROJECT_DIR$/StackBlur" />
             <option value="$PROJECT_DIR$/StackBlurDemo" />
+            <option value="$PROJECT_DIR$/androidsimple" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

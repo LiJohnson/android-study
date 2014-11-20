@@ -1,1 +1,2 @@
-include ':app', ':StackBlur', ':StackBlurDemo'
+include ':app', ':StackBlur', ':StackBlurDemo', ':DaoCore', ':DaoTest',  ':DaoExample', ':DaoGenerator', ':DaoExampleGenerator'
+include ':androidsimple'
