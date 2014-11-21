@@ -11,3 +11,8 @@
 
 /.idea/**/*
 /DaoTest/build
+/sample/build
+/library/build
+/williamchartLibrary/build
+/williamchartSample/build
+/androidsimple/build

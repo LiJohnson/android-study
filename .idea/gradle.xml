@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/StackBlurDemo" />
             <option value="$PROJECT_DIR$/androidsimple" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/williamchartLibrary" />
+            <option value="$PROJECT_DIR$/williamchartSample" />
           </set>
         </option>
       </GradleProjectSettings>

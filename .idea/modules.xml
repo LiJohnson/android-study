@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/TestModel.iml" filepath="$PROJECT_DIR$/TestModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidsimple/androidsimple.iml" filepath="$PROJECT_DIR$/androidsimple/androidsimple.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/williamchartLibrary/williamchartLibrary.iml" filepath="$PROJECT_DIR$/williamchartLibrary/williamchartLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/williamchartSample/williamchartSample.iml" filepath="$PROJECT_DIR$/williamchartSample/williamchartSample.iml" />
     </modules>
   </component>
 </project>
