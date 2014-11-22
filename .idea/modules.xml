@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/StackBlur/StackBlur.iml" filepath="$PROJECT_DIR$/StackBlur/StackBlur.iml" />
       <module fileurl="file://$PROJECT_DIR$/StackBlurDemo/StackBlurDemo.iml" filepath="$PROJECT_DIR$/StackBlurDemo/StackBlurDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestModel.iml" filepath="$PROJECT_DIR$/TestModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/abs.iml" filepath="$PROJECT_DIR$/abs.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidsimple/androidsimple.iml" filepath="$PROJECT_DIR$/androidsimple/androidsimple.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/williamchartLibrary/williamchartLibrary.iml" filepath="$PROJECT_DIR$/williamchartLibrary/williamchartLibrary.iml" />
