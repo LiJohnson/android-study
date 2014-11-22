@@ -1,7 +1,6 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+/.idea/*
 .DS_Store
 /build
 
@@ -9,10 +8,11 @@
 /StackBlurDemo/build/*
 /StackBlur/obj/local/**/*
 
-/.idea/**/*
 /DaoTest/build
 /sample/build
 /library/build
 /williamchartLibrary/build
 /williamchartSample/build
 /androidsimple/build
+
+*.iml
