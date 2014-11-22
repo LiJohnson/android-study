@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -130,55 +129,23 @@ public class MainActivity extends Activity implements OnRefreshListener {
 	@Override
 	@Background
 	public void onRefreshStarted(View view) {
-		new AsyncTask<Void, Void, Void>() {
-			@Override
-			protected Void doInBackground(Void... params) {
-				try {
-					Thread.sleep(1500L);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				return null;
-			}
-
-			@Override
-			protected void onPostExecute(Void result) {
-				super.onPostExecute(result);
-				updateLineChart( 3,10 );
-				pullToRefreshLayout.setRefreshComplete();
-			}
-		}.execute();
+		Log.i("shit","start : " + new Date());
+		try {
+			Thread.sleep(500L);
+		} catch (InterruptedException e) {	}
+		Log.i("shit","end : " + new Date());
+		this.updateLineChart( 3,10 );
 	}
 
 	@UiThread
-	public void updateRefresh(){
-		Log.i("shit","start : " + new Date());
-		try {
-			synchronized ( this.pullToRefreshLayout ){
-				this.pullToRefreshLayout.wait(1500L);
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			Log.e("shit",e.getMessage());
-		}
-		Log.i("shit","end : " + new Date());
-		this.pullToRefreshLayout.setRefreshComplete();
-	}
-
-	public static int random( int min , int max ){
-		int range = max - min;
-		return (int)( Math.random()*range )+min;
-	}
-
 	public void updateLineChart(int nSets, int nPoints){
-
 		LineSet data = null;
 		this.lineChartView.reset();
 
 		for(int i = 0; i < nSets; i++){
 			data = new LineSet();
 			for(int j = 0; j < nPoints; j++) {
-				data.addPoint(new Point("" + i, random( 10 ,30 )  ));
+				data.addPoint(new Point( j + "", DataRetriever.randNumber( 10 ,30 )  ));
 			}
 
 			data.setDots(DataRetriever.randBoolean())
@@ -221,6 +188,6 @@ public class MainActivity extends Activity implements OnRefreshListener {
 				}, nPoints))
 		//.show()
 		;
-
+		this.pullToRefreshLayout.setRefreshComplete();
 	}
 }
