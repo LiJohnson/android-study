@@ -1,2 +1,3 @@
-include ':app', ':StackBlur', ':StackBlurDemo', ':DaoCore', ':DaoTest', ':DaoExample', ':DaoGenerator', ':DaoExampleGenerator', ':williamchartLibrary', ':williamchartSample'
+include ':app', ':StackBlur', ':StackBlurDemo', ':DaoCore', ':DaoTest', ':DaoExample', ':DaoGenerator', ':DaoExampleGenerator', ':daggersample'
+include ':williamchartLibrary', ':williamchartSample', ':daggerGreendao'
 include ':androidsimple'

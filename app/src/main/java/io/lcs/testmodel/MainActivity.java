@@ -2,7 +2,6 @@ package io.lcs.testmodel;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +19,7 @@ import com.enrique.stackblur.StackBlurManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
@@ -27,9 +27,7 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.Date;
 
-import io.lcs.testmodel.greendao.DaoMaster;
-import io.lcs.testmodel.greendao.Note;
-import io.lcs.testmodel.greendao.NoteDao;
+import io.lcs.testmodel.greendao.TestBean;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
@@ -46,10 +44,14 @@ public class MainActivity extends Activity implements OnRefreshListener {
 	@ViewById(R.id.ptr_view)
 	protected PullToRefreshLayout pullToRefreshLayout;
 
+	@Bean
+	TestBean customer;
+
+
 	@ViewById(R.id.line_chart_view)
 	public LineChartView lineChartView;
 
-	private NoteDao noteDao;
+//	private NoteDao noteDao;
 
 	private StackBlurManager stackBlurManager;
 
@@ -57,9 +59,9 @@ public class MainActivity extends Activity implements OnRefreshListener {
 //	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		noteDao = new DaoMaster(new DaoMaster.DevOpenHelper(this, "notes-db", null).getWritableDatabase()).newSession().getNoteDao();
-		this.stackBlurManager =  new StackBlurManager(BitmapFactory.decodeStream( this.getResources().openRawResource( R.drawable.ic_launcher ) ));
+		//noteDao = new DaoMaster(new DaoMaster.DevOpenHelper(this, "notes-db", null).getWritableDatabase()).newSession().getNoteDao();
 
+		Log.i("shit" , this.customer + "");
 	}
 	@AfterViews
 	public void viewInited() {
@@ -85,7 +87,7 @@ public class MainActivity extends Activity implements OnRefreshListener {
 	@Click(R.id.btn)
 	public void click(){
 		int proces = (int)(Math.random()*50);
-		this.noteDao.insert(new Note( null , proces+"" , null , null  ));
+		//this.noteDao.insert(new Note( null , proces+"" , null , null  ));
 		this.updateImg(proces);
 		this.updateBtn(proces);
 		Log.i("shit", this.imageView.toString());
@@ -101,7 +103,7 @@ public class MainActivity extends Activity implements OnRefreshListener {
 	}
 	@UiThread
 	public void updateBtn( int process ){
-		this.btn.setText( "process" + process + " : " + this.noteDao.count());
+		this.btn.setText( "process" + process + " : " /*+ this.noteDao.count()*/);
 	}
 
 	@Override
