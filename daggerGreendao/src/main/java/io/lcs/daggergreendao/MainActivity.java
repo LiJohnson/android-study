@@ -2,16 +2,25 @@ package io.lcs.daggergreendao;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import javax.inject.Inject;
+
+import io.lcs.daggergreendao.dao.CustomerDao;
+
 
 public class MainActivity extends Activity {
+	@Inject
+	CustomerDao cd;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		((MainApp)this.getApplication()).inject(this);
 		setContentView(R.layout.activity_main);
+		Log.i("shit",this.cd == null ? "null" : this.cd.toString());
 	}
 
 
