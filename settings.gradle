@@ -1,3 +1,4 @@
 include ':app', ':StackBlur', ':StackBlurDemo', ':DaoCore', ':DaoTest', ':DaoExample', ':DaoGenerator', ':DaoExampleGenerator', ':daggersample', ':droidicon_test'
+include ':testdrawerlayout'
 include ':williamchartLibrary', ':williamchartSample', ':daggerGreendao'
 include ':androidsimple'
