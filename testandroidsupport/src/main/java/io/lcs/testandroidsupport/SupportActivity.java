@@ -1,10 +1,10 @@
 package io.lcs.testandroidsupport;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+import android.app.DialogFragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +12,7 @@ import android.view.View;
 import java.util.Calendar;
 
 
-public class SupportActivity extends FragmentActivity {
+public class SupportActivity extends Activity {
 
 
 	@Override
@@ -23,7 +23,7 @@ public class SupportActivity extends FragmentActivity {
 		findViewById(R.id.supportV4).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new DatePicker().show(getSupportFragmentManager(),"shit");
+				new DatePicker().show(getFragmentManager(),"shit");
 			}
 		});
 		findViewById(R.id.supportV4_2).setOnClickListener(new View.OnClickListener() {
