@@ -13,7 +13,7 @@ android {
 	}
 	buildTypes {
 		release {
-			runProguard false
+			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
@@ -23,7 +23,5 @@ dependencies {
 	repositories {
 		mavenCentral()
 	}
-	compile fileTree(dir: 'libs', include: ['*.jar'])
-	compile 'com.android.support:appcompat-v7:+'
-
+	compile fileTree(include: ['*.jar'], dir: 'libs')
 }
