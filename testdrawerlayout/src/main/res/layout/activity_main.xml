@@ -1,28 +1,24 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".MainActivity"
-                android:orientation="vertical">
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent">
+	<android.support.v4.widget.DrawerLayout
+		android:id="@+id/drawer"
 
-	<LinearLayout
-		android:layout_height="wrap_content"
-	    android:layout_width="wrap_content">
-
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#ff00c2dd" />
 		<fragment
 			android:id="@+id/a"
 			android:layout_height="150dp"
-		    android:layout_width="match_parent"
-		    android:layout_gravity="top"
-		    android:name="io.lcs.testdrawerlayout.TestFragment"
-			/>
-	</LinearLayout>
-	<fragment
-		android:id="@+id/b"
-		android:layout_height="150dp"
-		android:layout_width="match_parent"
-		android:layout_gravity="top"
-		android:name="io.lcs.testdrawerlayout.TestFragment"
-		/>
+			android:layout_width="match_parent"
+			android:layout_gravity="start"
+			android:name="io.lcs.testdrawerlayout.TestFragment"
+			tools:layout="@layout/fragment_test"/>
+	</android.support.v4.widget.DrawerLayout>
+</RelativeLayout>
 
-</LinearLayout>
