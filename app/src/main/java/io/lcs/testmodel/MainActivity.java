@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,6 +78,7 @@ public class MainActivity extends Activity implements OnRefreshListener {
 				Log.i("shit","this.pullToRefreshLayout still is null ");
 				return;
 			}
+			ViewPager v;
 
 		}
 		ActionBarPullToRefresh.from(this)

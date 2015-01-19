@@ -38,18 +38,17 @@ allprojects {
 }
 def AAVersion = '3.2'
 dependencies {
-	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile fileTree(include: ['*.jar'], dir: 'libs')
 	compile 'com.db.williamchart:williamchart:1.0.0'
 	compile 'com.google.code.gson:gson:2.3'
 	compile project(':StackBlur')
-
 	compile 'com.jakewharton:butterknife:6.0.0'
-
 	apt "org.androidannotations:androidannotations:$AAVersion"
 	compile "org.androidannotations:androidannotations-api:$AAVersion"
 	compile 'de.greenrobot:greendao:1.3.7'
 	compile 'com.github.chrisbanes.actionbarpulltorefresh:library:+'
 	compile 'com.j256.ormlite:ormlite-android:4.48'
+	compile 'com.android.support:support-v4:21.0.3'
 }
 
 apt {
