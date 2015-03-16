@@ -39,7 +39,7 @@ allprojects {
 def AAVersion = '3.2'
 dependencies {
 	compile fileTree(include: ['*.jar'], dir: 'libs')
-	compile 'com.db.williamchart:williamchart:1.0.0'
+	compile project(':williamchartLibrary')
 	compile 'com.google.code.gson:gson:2.3'
 	compile project(':StackBlur')
 	compile 'com.jakewharton:butterknife:6.0.0'
